@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around-Ukraine</title>
+    <style>
+      button {
+        border: none;
+        border-radius: 5px;
+        max-width: 100%;
+        margin: 0px;
+        color: #e7eaf6;
+        font-size: 16px;
+        background: transparent;
+        padding: 5px;
+        transition: all 200ms ease-in-out;
+      }
+
+      button:hover {
+        background: #455d7a;
+        color: white;
+        box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      a {
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        max-width: 120px;
+        margin: 0px;
+        color: #455d7a;
+        font-size: 16px;
+        background: transparent;
+        padding: 5px;
+        transition: all 200ms ease-in-out;
+      }
+
+      a:hover {
+        background: #455d7a;
+        color: white;
+        box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      #content {
+        width: 50%;
+        margin: 20px 100px 20px 50px;
+        position: static;
+      }
+
+      #block1 {
+        max-width: 100%;
+        min-width: 200px;
+
+        margin: 20px 50px 20px 0px;
+        position: relative;
+        right: 30px;
+      }
+
+      ul {
+        max-width: 100%;
+        min-width: 50%;
+        justify-content: stretch;
+        display: flex;
+        display: -webkit-flex;
+        list-style: none;
+        padding: 0;
+        margin: 10px 0px 10px 0px;
+        text-align: justify;
+        position: static;
+      }
+      li {
+        display: inline;
+        margin: 0 5px;
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+        text-align: center;
+        flex-grow: 1;
+      }
+
+      .menu {
+        color: black;
+      }
+
+      .cityRoutes {
+        padding-bottom: 30px;
+      }
+      .listCities {
+        text-align: left;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-align: left;
+        color: #455d7a;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        color: #455d7a;
+        font-size: 90px;
+        line-height: 90px;
+        margin: 3% 0 0 0px;
+      }
+      h2 {
+        font-size: 44px;
+        line-height: 48px;
+        font-weight: 400;
+        margin: 100px 0 0 0;
+      }
+      h3 {
+        margin: 0 0 25px 50px;
+      }
+
+      #slider {
+        width: 40%;
+        margin: 0 auto;
+        position: absolute;
+        right: 50px;
+        float: right;
+      }
+
+      #slider img {
+        width: 100%;
+        display: none;
+      }
+
+      #slider img:first-child {
+        display: block;
+      }
+
+      #allText {
+        width: 95%;
+        padding: 0 20px 0 0;
+        margin: 0 20px 0 0;
+        text-align: justify;
+        font-size: 18px;
+        line-height: 1.5;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .Centerimg {
+        margin: 0 0 50px 0;
+      }
+
+      .leftimg {
+        float: left;
+        margin: 18px 18px 18px 0;
+      }
+
+      .instructionEvent {
+        padding: 0 0 200px 50px;
+        max-width: 800px;
+        text-align: left;
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 400;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .container {
+          width: 100%;
+          align: left;
+          margin: 0 auto;
+        }
+        #block1 {
+          width: 70%;
+          margin: 20px 0px 20px 20px;
+          position: relative;
+          right: 70px;
+        }
+
+        #allText {
+          width: 100%;
+          margin: 0 20px 0 0;
+          text-align: justify;
+          font-size: 18px;
+          line-height: 1.5;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+          font-size: 70px;
+          line-height: 70px;
+        }
+
+        #slider {
+          width: 98%;
+          float: none;
+          margin: 10px;
+          position: static;
+          align: center;
+        }
+
+        #content {
+          width: auto;
+          margin: 0px 50px;
+          position: static;
+        }
+
+        ul {
+          justify-content: stretch;
+          display: flex;
+          display: -webkit-flex;
+
+          list-style: none;
+          padding: 0;
+          text-align: justify;
+        }
+
+        .instructionEvent {
+          padding: 0 0 20px 0;
+          text-align: left;
+          font-size: 18px;
+          line-height: 1.5;
+          font-weight: 400;
+          font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+            sans-serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="slider">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/646/original/000-Slider.Feet.jpg?1690753391"
+          alt="Feet"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/647/original/001-SliderSaltovkaHouse.jpg?1690753435"
+          alt="SaltovkaHouse"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/648/original/002-SliderGorkyPark.jpg?1690753482"
+          alt="GorkyPark"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/650/original/003-SliderDanger.jpg?1690753531"
+          alt="Danger"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/651/original/004-SliderPine-trees.jpg?1690753568"
+          alt="Pine-trees"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/652/original/005-SliderSumskaya.jpg?1690753616"
+          alt="Sumskaya"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/653/original/006-SliderForestSummer.jpg?1690753649"
+          alt="ForestSummer"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/654/original/007-SliderCar.jpg?1690753679"
+          alt="Car"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/656/original/008-SliderChurch.jpg?1690753708"
+          alt="Church"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/657/original/009-SliderHomeCyclist.jpg?1690753740"
+          alt="HomeCyclist"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/659/original/010-SliderZmievSteeps.jpg?1690753768"
+          alt="ZmievSteeps"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/660/original/011-SliderSaltovkaSwing.jpg?1690753810"
+          alt="SaltovkaSwing"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/661/original/012-SliderFieldBike.jpg?1690753846"
+          alt="FielBike"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/662/original/013-SliderKharkivCentralSquare.jpg?1690753884"
+          alt="KharkivCentralSquare"
+        />
+      </div>
+
+      <div id="content">
+        <div id="block1">
+          <ul>
+            <li>
+              <button>
+                <a href="#Home" class="menu">Home</a>
+              </button>
+            </li>
+            <li>
+              <button>
+                <a
+                  href="https://ukraine1day.com.ua/"
+                  target="_blank"
+                  class="menu"
+                >
+                  About
+                </a>
+              </button>
+            </li>
+            <li>
+              <button>
+                <a href="#Ukraine1day" class="menu">#Ukraine1day</a>
+              </button>
+            </li>
+            <li>
+              <button>
+                <a href="#Routes" class="menu">Routes</a>
+              </button>
+            </li>
+            <li>
+              <button class="menu" id="addRoute">Add route</button>
+            </li>
+          </ul>
+        </div>
+
+        <h2>
+          Stand with Ukraine!
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/644/original/FlagUA.png?1690752887"
+            alt="FlagUA"
+            width="40"
+          />
+        </h2>
+
+        <h1>
+          <article id="Home">
+            Around Ukraine<br />
+            in 1 day.
+            <hr style="max-width: 100%" align="left" />
+          </article>
+        </h1>
+
+        <div id="allText">
+          You like cycling or running? You can support Ukraine heroically
+          fighting until the end in a biggest war in Europe since WW2 by doing
+          what you love. Here you will find cycling and running routes for
+          different cities in the world shaped as a map of Ukraine. <br />
+          The first cycling route in a geographical shape of a Ukraine was made
+          by <strong>Taras Gulevaty</strong> from Kiev. He created two routes in
+          Kyiv, one 130 km long, another for 39 km.<br />
+          <br />
+          <em>The 130 km route in Kyiv was first conquered on 2018.</em> <br />
+          <em
+            >In July 2019 the same route was accomplished without a bike! People
+            finished 132.8 km run in 14 hours and 8 minutes.</em
+          >
+          <br />
+
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/906/original/Berlin_route.png?1690974907"
+            alt="Berlin_route"
+            class="Centerimg"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/907/original/Kyiv_route.png?1690974916"
+            alt="Kyiv_rote"
+            class="Centerimg"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/908/original/London_route.png?1690974925"
+            alt="London_route"
+            class="Centerimg"
+          />
+        </div>
+
+        <h3>
+          <article id="Ukraine1day">Event "Around Ukraine in 1 day"</article>
+        </h3>
+
+        <div id="allText">
+          If you want to contribute download the route of your choice, the event
+          logo and take part in “Around Ukraine in 1 day”.<br />
+          Our site is still under development and there are not much routes yet,
+          but you can contribute and add yours. Your name will be added to our
+          developers list with a link to your Internet resources.<br />
+          Conquer your route of choice and share your adventure on the Internet
+          with the #Ukraine1day hashtag. Tag this site in your posts. Ride a
+          bike, run and support Ukraine. With you along we аre stronger! Stand
+          with Ukraine!
+        </div>
+
+        <p class="instructionEvent">
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/091/665/original/AroundLogo.png?1690761502"
+            alt="AroundLogo"
+            class="leftimg"
+          />
+          <br />
+          <br />
+          1️⃣ Download the logo.<br />
+          2️⃣ Print it out and laminate it.<br />
+          The closest print shop will do it for you.<br />
+          3️⃣ Place it on your bike, you helmet, or your chest to show your
+          support to the “Around Ukraine in 1 day” community!
+        </p>
+
+        <h3>
+          <article id="Routes">The “Around Ukraine in 1 day” routes</article>
+        </h3>
+
+        <div id="allText">
+          If you did not find a route in your city, made your own route, ride it
+          or run it and share it with us. Send us the route, an additional info,
+          the photos and a link to your social networks. We will definitely add
+          you as our supporter and developer.💛💙
+          <br />
+          <div class="cityRoutes" id="downloadRoute">
+            <br />
+            <a class="listCities">Kyiv, Ukraine</a><br />
+            <a class="listCities">Dnipro, Ukraine</a><br />
+            <a class="listCities">Kharkov, Ukraine</a><br />
+            <a class="listCities">Odessa, Ukraine</a><br />
+            <a class="listCities">Vinnytsia, Ukraine</a><br />
+            <br />
+            <a class="listCities">Calgary, Canada</a><br />
+            <a class="listCities">Montreal, Canada</a><br />
+            <a class="listCities">Toronto, Canada</a><br />
+            <a class="listCities">Vancouver, Canada</a><br />
+            <br />
+            <a class="listCities">Birmingham, England</a><br />
+            <a class="listCities">London, England</a><br />
+            <a class="listCities">Manchester, England</a><br />
+            <br />
+            <a class="listCities">Lyon, France</a><br />
+            <a class="listCities">Marseille, France</a><br />
+            <a class="listCities">Nice, France</a><br />
+            <a class="listCities">Paris, France</a><br />
+            <br />
+            <a class="listCities">Berlin, Germany</a><br />
+            <a class="listCities">Hamburg, Germany</a><br />
+            <a class="listCities">Leipzig, Germany</a><br />
+            <a class="listCities">Munich, Germany</a><br />
+            <a class="listCities">Potsdam, Germany</a><br />
+            <a class="listCities">Stuttgart, Germany</a><br />
+            <br />
+            <a class="listCities">Milan, Italy</a>
+            <a class="listCities">Naples, Italy</a><br />
+            <a class="listCities">Rome, Italy</a><br />
+            <br />
+            <a class="listCities">Krakow, Poland</a><br />
+            <a class="listCities">Warsaw Poland</a><br />
+            <br />
+            <a class="listCities">Lisbon, Portugal</a><br />
+            <a class="listCities">Porto, Portugal</a><br />
+            <br />
+            <a class="listCities">Barcelona, Spain</a><br />
+            <a class="listCities">Madrid, Spain</a><br />
+            <a class="listCities">Palma, Spain</a><br />
+            <br />
+            <a class="listCities">Chicago, USA</a><br />
+            <a class="listCities">Honolulu, USA</a><br />
+            <a class="listCities">Los Angeles, USA</a><br />
+            <a class="listCities">New York, USA</a><br />
+            <a class="listCities">Seattle, USA</a><br />
+            <a class="listCities">Washington, USA</a>
+          </div>
+        </div>
+        <span>Coded by Gerel Tymofiieva</span>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let images = document.querySelectorAll("#slider img");
+      let i = 0;
+
+      function nextImg() {
+        if (i == images.length - 1) {
+          images[i].style.display = "none";
+          i = 0;
+          images[0].style.display = "block";
+        } else {
+          images[i].style.display = "none";
+          images[i + 1].style.display = "block";
+          i++;
+        }
+      }
+      setInterval(nextImg, 3000);
+
+      function addRoute() {
+        let firstName = prompt("What is your first name?");
+        let people = prompt(
+          "How many people have rode or ran your route? (i.e. 5)"
+        );
+
+        if (people >= 50) {
+          alert(
+            firstName +
+              " send the route to routes@ukraine1day.com Attach any info or photos to your mail. Join us!"
+          );
+        } else {
+          alert(
+            firstName +
+              " send the route to routes@ukraine1day.com Attach any info or photos to your mail. Join us! Your route will be labeled “under testing” next to it until it receive some users feedback."
+          );
+        }
+      }
+
+      let contactButton = document.querySelector("#addRoute");
+      contactButton.addEventListener("click", addRoute);
+
+      function downloadRoute() {
+        let firstName = prompt("What is your first name?");
+        let email = prompt("What is your email?");
+
+        if (email.includes("@")) {
+          alert(
+            "Hello, " +
+              firstName +
+              "! Congratulations! The route has been send to your email. Run! Ride! Stay with Ukraine!"
+          );
+        } else {
+          alert("Hello, " + firstName + "! The email is misspelled. 🙄");
+        }
+      }
+
+      let click1 = document.querySelector("#downloadRoute");
+      /*      click.addEventListener("click", downloadRoute); */
+      click1.addEventListener("click", downloadRoute);
+    </script>
+  </body>
+</html>
